@@ -1,0 +1,83 @@
+{
+  "name": "@octo-crm/server",
+  "appName": "OctoCRM",
+  "description": "CRM for managing Github repositories",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@bull-board/api": "^6.9.6",
+    "@bull-board/express": "^6.9.6",
+    "@bull-board/nestjs": "^6.9.6",
+    "@bull-board/ui": "^6.9.6",
+    "@nestjs/bull-shared": "^11.0.2",
+    "@nestjs/bullmq": "^11.0.2",
+    "@nestjs/common": "^11.1.1",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/core": "^11.1.1",
+    "@nestjs/jwt": "^11.0.0",
+    "@nestjs/mongoose": "^11.0.3",
+    "@nestjs/platform-express": "^11.1.1",
+    "@nestjs/serve-static": "^5.0.3",
+    "@nestjs/swagger": "^11.2.0",
+    "@nestjs/throttler": "^6.4.0",
+    "argon2": "^0.43.0",
+    "bullmq": "^5.53.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "compression": "^1.8.0",
+    "dotenv": "^16.5.0",
+    "etag": "^1.8.1",
+    "express": "^5.1.0",
+    "fast-safe-stringify": "^2.1.1",
+    "helmet": "^8.1.0",
+    "joi": "^17.13.3",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.15.0",
+    "nest-winston": "^1.10.2",
+    "nestjs-cls": "^5.4.3",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.0",
+    "uuid": "^11.1.0",
+    "winston": "^3.17.0"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "webpack-cli build",
+          "args": [
+            "node-env=production"
+          ]
+        },
+        "configurations": {
+          "development": {
+            "args": [
+              "node-env=development"
+            ]
+          }
+        }
+      },
+      "serve": {
+        "continuous": true,
+        "executor": "@nx/js:node",
+        "defaultConfiguration": "development",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "buildTarget": "@octo-crm/server:build",
+          "runBuildTargetDependencies": false
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "@octo-crm/server:build:development"
+          },
+          "production": {
+            "buildTarget": "@octo-crm/server:build:production"
+          }
+        }
+      }
+    }
+  }
+}

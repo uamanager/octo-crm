@@ -1,0 +1,58 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "nodenext",
+    "types": ["node"],
+    "rootDir": "src",
+    "moduleResolution": "nodenext",
+    "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "es2021",
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["eslint.config.js", "eslint.config.cjs", "eslint.config.mjs"],
+  "references": [
+    {
+      "path": "../../libs/server/domain/auth/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/server/infra/argon2/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/server/api/auth/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/server/domain/source/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/server/worker/source/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/core/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/server/infra/github/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/server/infra/bullmq/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/server/infra/mongodb/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/server/core/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/server/domain/project/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/server/domain/user/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/server/api/project/tsconfig.lib.json"
+    }
+  ]
+}

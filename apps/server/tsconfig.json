@@ -1,0 +1,49 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "../../libs/server/domain/auth"
+    },
+    {
+      "path": "../../libs/server/infra/argon2"
+    },
+    {
+      "path": "../../libs/server/api/auth"
+    },
+    {
+      "path": "../../libs/server/domain/source"
+    },
+    {
+      "path": "../../libs/server/worker/source"
+    },
+    {
+      "path": "../../libs/core"
+    },
+    {
+      "path": "../../libs/server/infra/github"
+    },
+    {
+      "path": "../../libs/server/infra/bullmq"
+    },
+    {
+      "path": "../../libs/server/infra/mongodb"
+    },
+    {
+      "path": "../../libs/server/core"
+    },
+    {
+      "path": "../../libs/server/domain/project"
+    },
+    {
+      "path": "../../libs/server/domain/user"
+    },
+    {
+      "path": "../../libs/server/api/project"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    }
+  ]
+}

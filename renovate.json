@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "extends": [
+    "config:base",
+    ":dependencyDashboard"
+  ],
+  "labels": [
+    "type:chore:deps"
+  ],
+  "semanticCommits": "enabled",
+  "semanticCommitType": "chore",
+  "semanticCommitScope": "deps"
+}
