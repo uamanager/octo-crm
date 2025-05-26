@@ -1,8 +1,9 @@
-import { Module } from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
+import { ServerDomainUserService } from './user.service';
 
 @Module({
   controllers: [],
-  providers: [],
-  exports: [],
+  providers: [Logger, ServerDomainUserService],
+  exports: [ServerDomainUserService],
 })
-export class OctoCrmServerDomainUserModule {}
+export class ServerDomainUserModule {}
