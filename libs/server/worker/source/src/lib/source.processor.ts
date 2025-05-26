@@ -53,7 +53,6 @@ export class ServerWorkerSourceProcessor extends WorkerHost {
 
   async onFetch(job: Job<FetchRepositorySourceQueueTask['data']>) {
     try {
-      console.log(job);
       const _update = await this.$_source.fetchFromGithub(job.data.key);
 
       const _source = await this.$_source.upsertByKey(
