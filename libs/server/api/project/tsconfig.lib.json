@@ -9,17 +9,32 @@
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "forceConsistentCasingInFileNames": true,
-    "types": [
-      "node"
-    ],
+    "types": ["node"],
     "target": "es2021",
     "strictNullChecks": true,
     "noImplicitAny": true,
     "strictBindCallApply": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "references": []
+  "include": ["src/**/*.ts"],
+  "references": [
+    {
+      "path": "../../domain/auth/tsconfig.lib.json"
+    },
+    {
+      "path": "../../domain/source/tsconfig.lib.json"
+    },
+    {
+      "path": "../../domain/project/tsconfig.lib.json"
+    },
+    {
+      "path": "../../../core/tsconfig.lib.json"
+    },
+    {
+      "path": "../../../shared/tsconfig.lib.json"
+    },
+    {
+      "path": "../../core/tsconfig.lib.json"
+    }
+  ]
 }
