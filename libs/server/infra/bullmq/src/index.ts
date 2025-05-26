@@ -1,1 +1,1 @@
-export * from './lib/bullmq.module';
+export * from './lib/source';
