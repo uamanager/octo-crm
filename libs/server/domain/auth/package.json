@@ -1,5 +1,5 @@
 {
-  "name": "@octo-crm/server-worker-project",
+  "name": "@octo-crm/server-domain-auth",
   "version": "0.0.1",
   "private": true,
   "main": "./src/index.ts",
