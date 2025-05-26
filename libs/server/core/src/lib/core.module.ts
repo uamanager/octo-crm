@@ -1,8 +1,9 @@
-import { Module } from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
+import { provideExceptionFilter } from './exception/exception.filter';
 
 @Module({
   controllers: [],
-  providers: [],
+  providers: [Logger, provideExceptionFilter()],
   exports: [],
 })
-export class OctoCrmServerCoreModule {}
+export class ServerCoreModule {}
