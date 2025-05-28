@@ -15,14 +15,14 @@ export class LoggerHelper implements LoggerService {
   fromError(error: unknown, message?: string, context: Record<string, unknown> = {}) {
     if (error && error instanceof Error) {
       this._logger.error(
-        `${error?.name ?? 'Error'}: ${error?.message} ${message}${this._mapContext(
+        `${error?.name ?? 'Error'}: ${error?.message} ${message ?? ''}${this._mapContext(
           context,
         )}`,
         error?.stack,
         this._caller,
       );
     } else {
-      const _error = new Error(message);
+      const _error = new Error(message ?? 'Unknown Error');
       this._logger.error(
         `Unexpected Error: ${_error.message}${this._mapContext(context)}`,
         _error.stack,
