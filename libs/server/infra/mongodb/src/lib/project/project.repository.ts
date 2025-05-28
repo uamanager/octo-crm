@@ -32,8 +32,9 @@ export class ServerInfraMongodbProjectRepository implements ProjectRepository {
         .find<IProjectEntity<string, string>>({
           user,
         })
-        .limit(limit)
+        .sort({_id: -1})
         .skip(offset)
+        .limit(limit)
         .populate<IProjectEntity<string, ISourceEntity>>('source')
         .exec();
 

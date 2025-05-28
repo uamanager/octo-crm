@@ -6,6 +6,7 @@ export * from './lib/common/request';
 export * from './lib/common/response';
 export * from './lib/common/typing';
 export * from './lib/common/util';
+export * from './lib/common/constant';
 
 export * from './lib/domain/auth';
 export * from './lib/domain/github';
