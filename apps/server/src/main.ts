@@ -45,6 +45,7 @@ async function bootstrap() {
   if (_appConfig.logAccess) {
     _app.use(AccessMiddleware.use($_logger));
   }
+  _app.enableCors();
   _app.use(helmet());
 
   _app.setGlobalPrefix(_apiConfig.prefix);
