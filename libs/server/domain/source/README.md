@@ -1,3 +1,2 @@
-# source
-
-This library was generated with [Nx](https://nx.dev).
+# @octo-crm/server-domain-source
+Source code management domain logic for handling repository connections and metadata.

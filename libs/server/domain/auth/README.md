@@ -1,3 +1,2 @@
-# auth
-
-This library was generated with [Nx](https://nx.dev).
+# @octo-crm/server-domain-auth
+Authentication domain logic including user authentication workflows, password validation, and security policies.

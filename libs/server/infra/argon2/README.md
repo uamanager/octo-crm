@@ -1,3 +1,2 @@
-# argon2
-
-This library was generated with [Nx](https://nx.dev).
+# @octo-crm/server-infra-argon2
+Provides secure password management through Argon2 hashing algorithm implementation.

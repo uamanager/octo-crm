@@ -1,3 +1,2 @@
-# core
-
-This library was generated with [Nx](https://nx.dev).
+# @octo-crm/server-core
+Core server functionality and utilities used across server components.

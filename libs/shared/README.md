@@ -1,3 +1,2 @@
-# shared
-
-This library was generated with [Nx](https://nx.dev).
+# @octo-crm/shared
+Common utilities, types, and helpers shared between client and server applications.

@@ -1,3 +1,2 @@
-# mongodb
-
-This library was generated with [Nx](https://nx.dev).
+# @octo-crm/server-infra-mongodb
+MongoDB integration for data persistence.

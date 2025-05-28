@@ -1,3 +1,2 @@
-# auth
-
-This library was generated with [Nx](https://nx.dev).
+# @octo-crm/server-api-auth
+Authentication API endpoints and controllers for user login, registration, and token management.

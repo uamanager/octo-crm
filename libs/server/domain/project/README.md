@@ -1,3 +1,2 @@
-# project
-
-This library was generated with [Nx](https://nx.dev).
+# @octo-crm/server-domain-project
+Project domain logic including project creation, management, and business rules.
