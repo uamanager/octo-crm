@@ -1,6 +1,6 @@
 import { IProjectResponseDto } from '@octo-crm/shared';
 import { IdApiProperty } from '@octo-crm/server-core';
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { ProjectSourceResponseDto } from './project-source.response.dto';
 
 export class ProjectResponseDto implements IProjectResponseDto {
@@ -17,11 +17,11 @@ export class ProjectResponseDto implements IProjectResponseDto {
   @IdApiProperty('User', 'users')
   user!: string;
 
-  @ApiPropertyOptional({
+  @ApiProperty({
     type: () => ProjectSourceResponseDto,
     description: 'Owner',
   })
-  source!: ProjectSourceResponseDto | null;
+  source!: ProjectSourceResponseDto;
 
   @ApiProperty({
     type: Date,

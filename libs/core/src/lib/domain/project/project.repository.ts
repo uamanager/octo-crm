@@ -11,12 +11,7 @@ export abstract class ProjectRepository {
 
   abstract getProjectByKey(user: string, key: string): Promise<ProjectModel | null>;
 
-  abstract createProject(user: string, key: string): Promise<ProjectModel>;
-
-  abstract linkSource(
-    key: string,
-    source: string,
-  ): Promise<void>;
+  abstract createProject(user: string, key: string, source: string): Promise<ProjectModel>;
 
   abstract deleteProject(user: string, id: string): Promise<void>;
 }

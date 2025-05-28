@@ -7,7 +7,7 @@ export class ProjectModel extends Model<ProjectModel> {
   key!: string;
 
   user!: string;
-  source!: SourceModel | null;
+  source!: SourceModel | string;
 
   created_at!: Date;
   updated_at!: Date;

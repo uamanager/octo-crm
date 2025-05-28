@@ -8,8 +8,8 @@ export interface ISourceEntity {
 
   key: string;
 
-  owner: IGithubRepositoryOwnerEntity;
-  repository: IGithubRepositoryRepositoryEntity;
+  owner: IGithubRepositoryOwnerEntity | null;
+  repository: IGithubRepositoryRepositoryEntity | null;
 
   created_at: Date;
   updated_at: Date;

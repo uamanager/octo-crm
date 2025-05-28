@@ -6,7 +6,7 @@ export interface IProjectResponseDto {
   key: string;
 
   user: string;
-  source: IProjectSourceResponseDto | null;
+  source: IProjectSourceResponseDto;
 
   created_at: Date;
   updated_at: Date;
@@ -14,8 +14,8 @@ export interface IProjectResponseDto {
 
 export interface IProjectSourceResponseDto {
   key: string;
-  owner: IProjectSourceOwnerResponseDto;
-  repository: IProjectSourceRepositoryResponseDto;
+  owner: IProjectSourceOwnerResponseDto | null;
+  repository: IProjectSourceRepositoryResponseDto | null;
 }
 
 export interface IProjectSourceOwnerResponseDto {

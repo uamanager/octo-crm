@@ -131,11 +131,12 @@ export class ServerInfraMongodbProjectRepository implements ProjectRepository {
     }
   }
 
-  async createProject(user: string, key: string): Promise<ProjectModel> {
+  async createProject(user: string, key: string, source: string): Promise<ProjectModel> {
     try {
       const _newProject = new this._projectModel({
         user,
         key,
+        source,
       });
 
       const _createdProject = await _newProject.save();
@@ -144,7 +145,7 @@ export class ServerInfraMongodbProjectRepository implements ProjectRepository {
         id: _createdProject.id,
         key: _createdProject.key,
         user: _createdProject.user,
-        source: null,
+        source: _createdProject.source,
         created_at: _createdProject.created_at,
         updated_at: _createdProject.updated_at,
       });
@@ -152,34 +153,6 @@ export class ServerInfraMongodbProjectRepository implements ProjectRepository {
       this.$_logger.fromError(err, 'Unable to create project', {
         user,
         key,
-      });
-
-      throw err;
-    }
-  }
-
-  async linkSource(key: string, source: string): Promise<void> {
-    try {
-      await this._projectModel.bulkWrite([
-        {
-          updateMany: {
-            filter: {
-              key,
-              source: null,
-            },
-            update: {
-              $set: {
-                source,
-                updated_at: new Date(),
-              },
-            },
-          },
-        },
-      ]);
-    } catch (err) {
-      this.$_logger.fromError(err, 'Unable to link project source', {
-        key,
-        source,
       });
 
       throw err;

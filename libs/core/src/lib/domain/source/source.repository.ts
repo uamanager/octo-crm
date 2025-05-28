@@ -2,7 +2,7 @@ import { SourceModel } from './source.model';
 import { UpdateSourceModel } from './update-source.model';
 
 export abstract class SourceRepository {
-  abstract findByKey(key: string): Promise<SourceModel | null>;
+  abstract findOrCreateByKey(key: string): Promise<SourceModel>;
 
   abstract upsertByKey(key: string, data: UpdateSourceModel): Promise<SourceModel>;
 }

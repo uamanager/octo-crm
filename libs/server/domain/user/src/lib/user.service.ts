@@ -10,6 +10,18 @@ export class ServerDomainUserService {
     this.$_logger = LoggerHelper.create($_logger, this.constructor.name);
   }
 
+  async exists(id: string): Promise<boolean> {
+    try {
+      return await this.$_userRepository.exists(id);
+    } catch (err) {
+      this.$_logger.fromError(err, 'Error while validating user existence', {
+        id,
+      });
+
+      return false;
+    }
+  }
+
   async createUser(user: CreateUserModel): Promise<UserModel> {
     try {
       return await this.$_userRepository.createUser(user);

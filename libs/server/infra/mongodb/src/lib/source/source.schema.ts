@@ -26,13 +26,13 @@ export class Source implements ISourceEntity {
 
   @Prop({
     type: Object,
-    required: true,
+    default: null,
   })
   owner!: SourceDataOwner;
 
   @Prop({
     type: Object,
-    required: true,
+    default: null,
   })
   repository!: SourceDataRepository;
 

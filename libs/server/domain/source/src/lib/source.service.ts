@@ -20,20 +20,6 @@ export class ServerDomainSourceService {
     this.$_logger = LoggerHelper.create($_logger, this.constructor.name);
   }
 
-  async scheduleFetch(key: string) {
-    try {
-      this.$_logger.debug(`Schedule fetch source`, {
-        key,
-      });
-
-      await this.$_sourceQueue.fetch(key);
-    } catch (err) {
-      this.$_logger.fromError(err, 'Error while fetching source', {
-        key,
-      });
-    }
-  }
-
   async scheduleRefresh(key: string) {
     try {
       this.$_logger.debug(`Schedule refresh source`, {
@@ -48,11 +34,11 @@ export class ServerDomainSourceService {
     }
   }
 
-  async findByKey(key: string) {
+  async findOrCreateByKey(key: string) {
     try {
-      return await this.$_sourceRepository.findByKey(key);
+      return await this.$_sourceRepository.findOrCreateByKey(key);
     } catch (err) {
-      this.$_logger.fromError(err, 'Unable to find source', {
+      this.$_logger.fromError(err, 'Unable to find or create source by key', {
         key,
       });
 

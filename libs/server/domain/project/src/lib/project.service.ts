@@ -50,26 +50,13 @@ export class ServerDomainProjectService {
     }
   }
 
-  async create(user: string, key: string) {
+  async create(user: string, key: string, source: string) {
     try {
-      return await this.$_projectRepository.createProject(user, key);
+      return await this.$_projectRepository.createProject(user, key, source);
     } catch (err) {
       this.$_logger.fromError(err, 'Unable to create project', {
         user,
         key,
-      });
-
-      throw err;
-    }
-  }
-
-  async linkSource(key: string, source: string) {
-    try {
-      return await this.$_projectRepository.linkSource(key, source);
-    } catch (err) {
-      this.$_logger.fromError(err, 'Unable to link project source', {
-        key,
-        source,
       });
 
       throw err;

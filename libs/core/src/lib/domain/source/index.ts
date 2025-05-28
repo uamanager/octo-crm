@@ -4,3 +4,4 @@ export * from './update-source.model';
 export * from './source.repository';
 
 export * from './queue';
+export * from './error';

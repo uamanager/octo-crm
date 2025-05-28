@@ -6,7 +6,7 @@
   "sync": {
     "applyChanges": true
   },
-  "useDaemonProcess": false,
+  "useDaemonProcess": true,
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [

@@ -6,8 +6,8 @@ export class SourceModel extends Model<SourceModel> {
 
   key!: string;
 
-  owner!: GithubRepositoryOwnerModel;
-  repository!: GithubRepositoryRepositoryModel;
+  owner!: GithubRepositoryOwnerModel | null;
+  repository!: GithubRepositoryRepositoryModel | null;
 
   created_at!: Date;
   updated_at!: Date;

@@ -5,7 +5,6 @@ import { BullBoardModule } from '@bull-board/nestjs';
 import { BullMQAdapter } from '@bull-board/api/bullMQAdapter';
 import { ServerWorkerSourceProcessor } from './source.processor';
 import { ServerDomainSourceModule } from '@octo-crm/server-domain-source';
-import { ServerDomainProjectModule } from '@octo-crm/server-domain-project';
 
 @Module({
   imports: [
@@ -17,7 +16,6 @@ import { ServerDomainProjectModule } from '@octo-crm/server-domain-project';
       adapter: BullMQAdapter,
     }),
     ServerDomainSourceModule,
-    ServerDomainProjectModule,
   ],
   providers: [Logger, ServerWorkerSourceProcessor],
   exports: [],

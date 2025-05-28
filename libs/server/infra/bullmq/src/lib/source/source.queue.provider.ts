@@ -1,6 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
 import {
-  FetchRepositorySourceQueueTask,
   QueueTask,
   RefreshRepositorySourceQueueTask,
   SOURCE_QUEUE,
@@ -36,19 +35,6 @@ export class ServerInfraBullmqSourceQueueProvider implements SourceQueueProvider
       });
       throw err;
     }
-  }
-
-  async fetch(key: string) {
-    return this.enqueue(
-      new FetchRepositorySourceQueueTask(key, {
-        deduplication: {
-          id: `fetch(${key})`,
-          ttl: 1000 * 60 * 60,
-        },
-        removeOnComplete: 1,
-        removeOnFail: 1,
-      }),
-    );
   }
 
   async refresh(key: string) {

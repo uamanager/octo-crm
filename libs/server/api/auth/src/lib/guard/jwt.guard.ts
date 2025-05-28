@@ -9,6 +9,7 @@ import { Reflector } from '@nestjs/core';
 import { ServerDomainAuthService } from '@octo-crm/server-domain-auth';
 import { API_SCOPE, API_SCOPE_PUBLIC, LoggerHelper } from '@octo-crm/server-core';
 import { Request } from 'express';
+import { ServerDomainUserService } from '@octo-crm/server-domain-user';
 
 export const AUTHORIZATION_HEADER = 'Authorization';
 export const AUTHORIZATION_HEADER_BEARER = 'Bearer';
@@ -38,6 +39,7 @@ export class JwtAuthGuard implements CanActivate {
     $_logger: Logger,
     private readonly $_reflector: Reflector,
     private readonly $_auth: ServerDomainAuthService,
+    private readonly $_user: ServerDomainUserService,
   ) {
     this.$_logger = LoggerHelper.create($_logger, this.constructor.name);
   }
@@ -56,7 +58,15 @@ export class JwtAuthGuard implements CanActivate {
       const _result = await this.$_auth.verifyToken(_token);
 
       if (!_result) {
-        return false;
+        throw new UnauthorizedException();
+      }
+
+      const _session = this.$_auth.getSession();
+
+      const _exists = await this.$_user.exists(_session.sub);
+
+      if (!_exists) {
+        throw new UnauthorizedException();
       }
 
       return true;

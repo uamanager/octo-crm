@@ -1,12 +1,6 @@
 import { HydratedDocument } from 'mongoose';
 import { Prop, Schema, SchemaFactory, Virtual } from '@nestjs/mongoose';
-import {
-  EntityRef,
-  IProjectEntity,
-  ISourceEntity,
-  IUserEntity,
-  OptionalEntityRef,
-} from '@octo-crm/core';
+import { EntityRef, IProjectEntity, ISourceEntity, IUserEntity } from '@octo-crm/core';
 
 export type ProjectDocument = HydratedDocument<Project>;
 
@@ -19,7 +13,7 @@ export type ProjectDocument = HydratedDocument<Project>;
 })
 export class Project<
   TUser extends EntityRef<IUserEntity> = string,
-  TSource extends OptionalEntityRef<ISourceEntity> = string,
+  TSource extends EntityRef<ISourceEntity> = string,
 > implements IProjectEntity<TUser, TSource>
 {
   @Virtual({
@@ -35,7 +29,7 @@ export class Project<
   @Prop({ type: String, ref: 'User', required: true, index: true })
   user!: TUser;
 
-  @Prop({ type: String, ref: 'Source', default: null })
+  @Prop({ type: String, ref: 'Source', required: true })
   source!: TSource;
 
   @Prop({ default: Date.now })
@@ -46,3 +40,5 @@ export class Project<
 }
 
 export const ProjectSchema = SchemaFactory.createForClass(Project);
+
+ProjectSchema.index({ user: 1, key: 1 }, { unique: true });

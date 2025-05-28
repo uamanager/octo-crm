@@ -9,6 +9,7 @@ import {
 } from '@octo-crm/core';
 import { User } from './user.schema';
 import { LoggerHelper } from '@octo-crm/server-core';
+import { ObjectId } from 'mongodb';
 
 @Injectable()
 export class ServerInfraMongodbUserRepository implements UserRepository {
@@ -19,6 +20,27 @@ export class ServerInfraMongodbUserRepository implements UserRepository {
     @InjectModel(User.name) private readonly _userModel: Model<User>,
   ) {
     this.$_logger = LoggerHelper.create($_logger, this.constructor.name);
+  }
+
+  async exists(id: string): Promise<boolean> {
+    try {
+      const _exists = await this._userModel
+        .exists({
+          _id: new ObjectId(id),
+        })
+        .exec();
+
+
+      console.log('exists', _exists);
+
+      return !!_exists;
+    } catch (err) {
+      this.$_logger.fromError(err, 'Error while validating user existence', {
+        id,
+      });
+
+      return false;
+    }
   }
 
   async createUser(user: CreateUserModel): Promise<UserModel> {

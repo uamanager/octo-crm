@@ -58,15 +58,17 @@ export class ServerApiProjectService {
     try {
       const _session = this.$_auth.getSession();
 
-      const _existing = await this.$_project.getByKey(_session.sub, body.key);
+      const _existingProject = await this.$_project.getByKey(_session.sub, body.key);
 
-      if (_existing) {
+      if (_existingProject) {
         throw new ConflictException('Project with this key already exists.');
       }
 
-      const _project = await this.$_project.create(_session.sub, body.key);
+      const _existingSource = await this.$_source.findOrCreateByKey(body.key);
 
-      await this.$_source.scheduleFetch(body.key);
+      const _project = await this.$_project.create(_session.sub, body.key, _existingSource.id);
+
+      await this.$_source.scheduleRefresh(body.key);
 
       return ProjectCreateResponseDto.fromResult(_project);
     } catch (err) {
