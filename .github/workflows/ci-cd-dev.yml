@@ -1,0 +1,20 @@
+name: CI/CD DEV Workflow
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ci-cd-dev
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  actions: read
+  id-token: write
+
+jobs:
+  lint-test-build:
+    name: Lint/Test/Build Job
+    uses: ./.github/workflows/lint-test-build.yml
