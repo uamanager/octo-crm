@@ -30,10 +30,27 @@ export class ErrorDto implements IBaseErrorDto {
     this.message = message;
   }
 
-  static from(err: unknown) {
+  static from(err: unknown): ErrorDto[] {
     const _exception =
       err instanceof HttpException ? err : new InternalServerErrorException(err);
 
-    return new ErrorDto(_exception.getStatus(), _exception.name, _exception.message);
+    const _status = _exception.getStatus();
+    const _response = _exception.getResponse();
+
+    if (typeof _response === 'object') {
+      if ('message' in _response) {
+        const _messages = Array.isArray(_response.message)
+          ? _response.message
+          : [_response.message];
+
+        return _messages.map((message) => {
+          return new ErrorDto(_status, _exception.name, message);
+        });
+      }
+
+      return [new ErrorDto(_status, _exception.name, _exception.message)];
+    } else {
+      return [new ErrorDto(_status, _exception.name, _response ?? _exception.message)];
+    }
   }
 }

@@ -38,7 +38,7 @@ export class BaseResponseDto<T> implements IBaseResponseDto<T> {
     });
   }
 
-  static fromError(error: IBaseErrorDto) {
+  static fromError(error: IBaseErrorDto | IBaseErrorDto[]) {
     return this.fromResult<null>(null).withError(error);
   }
 
@@ -49,10 +49,10 @@ export class BaseResponseDto<T> implements IBaseResponseDto<T> {
     this.errors = response.errors || [];
   }
 
-  withError(error: IBaseErrorDto) {
-    this.errors = [...this.errors, error];
+  withError(error: IBaseErrorDto | IBaseErrorDto[]) {
+    this.errors = [...this.errors, ...(Array.isArray(error) ? error : [error])];
     this.success = !this.errors.length;
-    this.status = error.status;
+    this.status = Math.max(...this.errors.map((err) => err.status));
 
     return this;
   }
