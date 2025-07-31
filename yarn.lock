@@ -1147,6 +1147,13 @@
   resolved "https://registry.yarnpkg.com/@bufbuild/protobuf/-/protobuf-2.4.0.tgz#ef6bfd2fc0374a95a4904cdc5fd8e02cc999cf73"
   integrity sha512-RN9M76x7N11QRihKovEglEjjVCQEA9PRBVnDgk9xw8JHLrcUrp4FpAVSPSH91cNbcTft3u2vpLN4GMbiKY9PJw==
 
+"@bull-board/api@6.12.0":
+  version "6.12.0"
+  resolved "https://registry.yarnpkg.com/@bull-board/api/-/api-6.12.0.tgz#0df55e98c71e73005be8c92242befb1337532bc1"
+  integrity sha512-tlMQTc0EAiYbv8gjR0lCYAXDL1Uc8/dPD9tKjxvG+m9lUUpPAoRUXUHNtzwVQo+AHiF6WHEK9iA3+8KHJamc/w==
+  dependencies:
+    redis-info "^3.1.0"
+
 "@bull-board/api@6.9.6", "@bull-board/api@^6.9.6":
   version "6.9.6"
   resolved "https://registry.yarnpkg.com/@bull-board/api/-/api-6.9.6.tgz#48985a68b9f67eeb875632f514d616ed78670f98"
@@ -1165,16 +1172,23 @@
     express "^4.21.1 || ^5.0.0"
 
 "@bull-board/nestjs@^6.9.6":
-  version "6.9.6"
-  resolved "https://registry.yarnpkg.com/@bull-board/nestjs/-/nestjs-6.9.6.tgz#f6be70f8b9037b49ab1e4cc24a4fc97b7044fe99"
-  integrity sha512-QqxCbQ18N5TgEcNc8mc1+JL9Ua9jDFtdZOCo6H5H1MELIEG3scnLbzWrkiyyT9ZqtwwYEDt03CM8/YPjFZm5YQ==
+  version "6.12.0"
+  resolved "https://registry.yarnpkg.com/@bull-board/nestjs/-/nestjs-6.12.0.tgz#1bca0cc36941395db876b72eda7c07e93aec5bfa"
+  integrity sha512-Usw6g2KJJk7F65M/QvuIuE6uRyvRY/obFNLgvRUlyWdp7ITH6Klp0UxqIkDvW910JNJXdNSMDPJ6omU5iqiwig==
 
-"@bull-board/ui@6.9.6", "@bull-board/ui@^6.9.6":
+"@bull-board/ui@6.9.6":
   version "6.9.6"
   resolved "https://registry.yarnpkg.com/@bull-board/ui/-/ui-6.9.6.tgz#a3c83384c73b54ca564cb275caeee646f0b6417e"
   integrity sha512-uRYJ3G4hsodEuhVd7yIl7MSsGNYZNa0nCcivK472ojUV22t4ZB2j2KKew07jBhlhPN5jxzQ5PJh16lOnrWk9vQ==
   dependencies:
     "@bull-board/api" "6.9.6"
+
+"@bull-board/ui@^6.9.6":
+  version "6.12.0"
+  resolved "https://registry.yarnpkg.com/@bull-board/ui/-/ui-6.12.0.tgz#57ad8b2e2bb1e5b7002a0ae7da023d4521e3444b"
+  integrity sha512-a1+9bUlNViXIQcO9KPOd1EP66Ts4caYHgsc5OuunDMZ9Q6Y7sfrQXMhfnv3JWahSNo3hiX6Fc8wIL4p/bcTwsw==
+  dependencies:
+    "@bull-board/api" "6.12.0"
 
 "@colors/colors@1.6.0", "@colors/colors@^1.6.0":
   version "1.6.0"
