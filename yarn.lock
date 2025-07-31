@@ -1147,10 +1147,17 @@
   resolved "https://registry.yarnpkg.com/@bufbuild/protobuf/-/protobuf-2.4.0.tgz#ef6bfd2fc0374a95a4904cdc5fd8e02cc999cf73"
   integrity sha512-RN9M76x7N11QRihKovEglEjjVCQEA9PRBVnDgk9xw8JHLrcUrp4FpAVSPSH91cNbcTft3u2vpLN4GMbiKY9PJw==
 
-"@bull-board/api@6.9.6", "@bull-board/api@^6.9.6":
+"@bull-board/api@6.9.6":
   version "6.9.6"
   resolved "https://registry.yarnpkg.com/@bull-board/api/-/api-6.9.6.tgz#48985a68b9f67eeb875632f514d616ed78670f98"
   integrity sha512-k1h35Q+y5hdf9UoPhp6mLG5+QM9AHP8luyggxEJ+/ZkoSMJ0h45HjHhqbexEAzdgsVN7lncXNLNn6myKwwcjkw==
+  dependencies:
+    redis-info "^3.1.0"
+
+"@bull-board/api@^6.9.6":
+  version "6.12.0"
+  resolved "https://registry.yarnpkg.com/@bull-board/api/-/api-6.12.0.tgz#0df55e98c71e73005be8c92242befb1337532bc1"
+  integrity sha512-tlMQTc0EAiYbv8gjR0lCYAXDL1Uc8/dPD9tKjxvG+m9lUUpPAoRUXUHNtzwVQo+AHiF6WHEK9iA3+8KHJamc/w==
   dependencies:
     redis-info "^3.1.0"
 
